@@ -1,6 +1,5 @@
 package nameplay;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -8,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class NamePlay {
 
-    private static Pattern pattern = Pattern.compile("\\s{1,}");  // multiple spaces
+    private static Pattern pattern = Pattern.compile("\\s{1,}"); // regular expression for removing space (s)
     private static String finalStr = "";
 
     public static void main(String args[]) {
@@ -21,33 +20,27 @@ public class NamePlay {
         System.out.println("Enter your last name: ");
         String lastName = input.nextLine();
 
-        String fullName = (firstName + " " + lastName);
+        String fullName = firstName.trim()+ " " + lastName.trim(); //we can also print without trim but it will print in disorder
         System.out.println("Name: " + fullName);
 
 
-
-
-        countFullNameLength(fullName);
+        countFullNameLength(firstName + lastName);
         //print length
         System.out.println("length( " + fullName + " ) :" + finalStr.length());
 
-        String fNameLen = firstName.toString();
-        
-        String sNameLen = (lastName.toString());
-     
-        
+       
         //compare length
-        if (fNameLen.length() == sNameLen.length()) 
+        if (firstName.trim().length() == lastName.trim().length())//trim space and count only character
         {
             System.out.println("Status: Good one");
         }
-        else 
+        else
         {
             System.out.println("Status: Not bad though");
         }
         
         Integer x = finalStr.length();
-        String st = finalStr.substring(0, 1).toLowerCase().concat(finalStr.substring(1, x));//convert  first letter to lowercase
+        String st = finalStr.substring(0, 1).toLowerCase().concat(finalStr.substring(1, x));//convert first letter to lowercase
         System.out.println("Hungarian: " + st);
         
         try
