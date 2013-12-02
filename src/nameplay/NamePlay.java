@@ -11,7 +11,6 @@ import java.util.regex.Pattern;
 
 public class NamePlay {
 
-   // private String str = "";
     private static Pattern pattern = Pattern.compile("\\s{1,}");  // multiple spaces
     private static String finalStr = "";
 
@@ -79,8 +78,7 @@ public class NamePlay {
 
         }
         sb.append(fullName.substring(startNext));//fullname from initial to end string
-        //sb.substring(0, 1).toLowerCase().concat(fullName.substring(1, startNext));//convert first letter to lowercase
-
+        
         finalStr = sb.toString();
 
     }
